@@ -1,0 +1,46 @@
+{
+  "Arxiv": {
+    "import": "from agno.tools.arxiv import ArxivTools",
+    "tool": "ArxivTools()"
+  },
+  "Crawl4ai": {
+    "import": "from agno.tools.crawl4ai import Crawl4aiTools",
+    "tool": "Crawl4aiTools(max_length=None)"
+  },
+  "DuckDuckGo": {
+    "import": "from agno.tools.duckduckgo import DuckDuckGoTools",
+    "tool": "DuckDuckGoTools()"
+  },
+  "Github": {
+    "import": "from agno.tools.github import GithubTools",
+    "tool": "GithubTools()"
+  },
+  "Newspaper4k": {
+    "import": "from agno.tools.newspaper4k import Newspaper4kTools",
+    "tool": "Newspaper4kTools()"
+  },
+  "Yfinance": {
+    "import": "from agno.tools.yfinance import YFinanceTools",
+    "tool": "YFinanceTools(stock_price=True, analyst_recommendations=True, stock_fundamentals=True)"
+  },
+  "Youtube": {
+    "import": "from agno.tools.youtube import YouTubeTools",
+    "tool": "YouTubeTools()"
+  },
+  "Postgres": {
+    "import": "from agno.tools.postgres import PostgresTools",
+    "tool": "PostgresTools(host='agnarok.ca4zqslyjq8j.ap-south-1.rds.amazonaws.com', port=5432, db_name='agnarok', user='postgres', password='Z6B3twcBRDXf9XtcSoXL')"
+  },
+  "Email": {
+    "import": "from agno.tools.email import EmailTools",
+    "tool": "EmailTools()"
+  },
+  "Wikipedia": {
+    "import": "from agno.tools.wikipedia import WikipediaTools",
+    "tool": "WikipediaTools()"
+  },
+  "Cal": {
+    "import": "from agno.tools.calcom import CalComTools",
+    "tool": "CalComTools()"
+  }
+}

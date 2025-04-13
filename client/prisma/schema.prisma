@@ -7,3 +7,64 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model agents {
+  id           Int       @id @default(autoincrement())
+  agentid      String    @unique @db.VarChar(50)
+  userId       Int
+  name         String    @db.VarChar(100)
+  description  String?
+  permissions  String?
+  pcode        String?   @db.VarChar(100)
+  instructions String?
+  file_path    String    @db.VarChar(255)
+  status       String    @db.VarChar(20)
+  port         Int?
+  pid          Int?
+  createdAt    DateTime? @db.Timestamp(6)
+  updatedAt    DateTime? @db.Timestamp(6)
+}
+
+model models {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(50)
+  code      String    @unique @db.VarChar(50)
+  provider  String    @db.VarChar(50)
+  offline   Boolean?
+  endpoint  String?   @db.VarChar(255)
+  createdAt DateTime? @db.Timestamp(6)
+  updatedAt DateTime? @db.Timestamp(6)
+}
+
+model permissions {
+  id          Int       @id @default(autoincrement())
+  pcode       String    @unique @db.VarChar(50)
+  permission  String?
+  description String?
+  createdAt   DateTime? @db.Timestamp(6)
+  updatedAt   DateTime? @db.Timestamp(6)
+}
+
+model users {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  name      String   @db.VarChar(255)
+  gmail     String?  @db.VarChar(255)
+  github    String?  @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @db.Timestamptz(6)
+}
+
+model shipping_data {
+  name             String? @db.VarChar(50)
+  price____        Float?  @map("price ($)") @db.Real
+  weight__kg_      Float?  @map("weight (kg)") @db.Real
+  length__m_       Float?  @map("length (m)") @db.Real
+  width__m_        Float?  @map("width (m)") @db.Real
+  height__m_       Float?  @map("height (m)") @db.Real
+  shipment_date    String? @map("shipment date") @db.VarChar(50)
+  destination_port String? @map("destination port") @db.VarChar(50)
+
+  @@ignore
+}
